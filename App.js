@@ -15,6 +15,8 @@ import Ex11 from './screens/week2/Ex11';
 import Ex12 from './screens/week2/Ex12';
 import Travel from './screens/week3/Travel';
 import Signup from './components/week3/Signup';
+import Resort from './screens/week4/Resort';
+
 
 export default function App() {
   return (
@@ -30,7 +32,8 @@ export default function App() {
     // <Ex10 />
     // <Ex11 />
     // <Ex12 />
-    <Travel />
+    // <Travel />
     // <Signup />
+    <Resort />
   );
 }
