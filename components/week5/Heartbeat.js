@@ -10,7 +10,7 @@ export default function Heartbeat() {
 
     return (
         <View style={{ flex : 1 , marginTop: 20, flexDirection: 'row', justifyContent: 'space-around' }}>
-            <View style={{ justifyContent: 'space-around',flexDirection: 'row' }}>
+            <View style={{ justifyContent: 'space-around', }}>
                 <TouchableOpacity onPress={onPressHeart}>
                 <FontAwesome name="heart"  size={28} color="tomato" />
                 <Text style={{ fontSize: 30, textAlign: 'center' }}>{heart}</Text>

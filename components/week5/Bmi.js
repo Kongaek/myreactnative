@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TouchableOpacity, View } from "react-native";
 import { Button, TextInput, Text } from "react-native";
-import MyIcon from '../week3/MyIcon';
+
 import Heartbeat from "./Heartbeat";
 
 export default function Bmi() {
