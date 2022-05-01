@@ -1,8 +1,14 @@
-import React from 'react';
-import { View } from 'react-native';
 
+import React from 'react';
+import { View, Button } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 export default function Ex10() {
-  return (
+    const navigation = useNavigation();
+    return (
+        <View style={{ flex: 1 }}>
     <View style={{ flex : 1 , backgroundColor : '#4A90E2', flexDirection : 'row', alignSelf: 'stretch' }}></View>
-  );
+  
+    <Button title="Next" onPress={() => navigation.navigate("Ex11")} />
+    </View>
+);
 }
