@@ -3,6 +3,7 @@ import { FlatList, View, Text, TouchableOpacity, Image } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import BookStorage from "../../storages/BookStorage";
+import BookLaravel from "../../services/BookLaravel";
 
 export default function Book() {
     const [products, setProducts] = useState([
@@ -13,7 +14,8 @@ export default function Book() {
     const navigation = useNavigation();
     const loadBooks = async () => {
         setRefresh(true);
-        let products = await BookStorage.readItems();
+        // let products = await BookStorage.readItems();
+        let products = await BookLaravel.getItems();
         setProducts(products);
         setRefresh(false);
     };

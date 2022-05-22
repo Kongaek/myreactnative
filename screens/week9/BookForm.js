@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { KeyboardAvoidingView, View, ScrollView, Text, Button, TextInput } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import BookStorage from "../../storages/BookStorage";
+import BookLaravel from "../../services/BookLaravel";
 
 export default function BookForm() {
     const [id, setId] = useState("_" + Math.random().toString(36).substring(2, 9));
@@ -14,7 +15,8 @@ export default function BookForm() {
     useLayoutEffect(() => { navigation.setOptions({ title: item ? "edit" : "create" }); }, [navigation]);
     useEffect(async () => {
         if (item) {
-            let book = await BookStorage.readItemDetail(item);
+            // let book = await BookStorage.readItemDetail(item);
+            let book = await BookLaravel.getItemDetail(item);
             setId(book.id);
             setName(book.name);
             setPrice(book.price.toString());
@@ -25,7 +27,13 @@ export default function BookForm() {
         //A NEW ITEM
         let new_data = { id: id, name: name, price: price, image: image };
         //SAVE
-        await BookStorage.writeItem(new_data);
+        // await BookStorage.writeItem(new_data);
+        if(item){
+            await BookLaravel.updateItem(new_data);
+          }else{
+            await BookLaravel.storeItem(new_data);
+          }
+      
         //REDIRECT TO
         navigation.navigate("Book");
       };
